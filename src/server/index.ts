@@ -1,0 +1,28 @@
+import fastifyCors from "@fastify/cors";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+import fastify from "fastify";
+import { initDataSources } from "../data-sources";
+
+const PORT = (process.env.PORT || 4200) as number;
+const HOST = "0.0.0.0";
+
+(async () => {
+  await initDataSources({
+    mongoose: {
+      mongoUrl: process.env.MONGODB_URL as string,
+    },
+  });
+
+  const server = fastify({
+    logger: true,
+  });
+
+  const serverAddress = await server.listen({ port: PORT, host: HOST }, () => {
+    server.log.info(`Backend App is running at http://localhost:${PORT}`);
+    server.log.info("Press CTRL-c to stop");
+  });
+
+  server.log.info(`Server successfully started on: ${serverAddress}`);
+})();
