@@ -1,9 +1,11 @@
 import fastifyCors from "@fastify/cors";
 import * as dotenv from "dotenv";
+
 dotenv.config();
 
 import fastify from "fastify";
 import { initDataSources } from "../data-sources";
+import { registerRoutes } from "../routes";
 
 const PORT = (process.env.PORT || 4200) as number;
 const HOST = "0.0.0.0";
@@ -17,6 +19,18 @@ const HOST = "0.0.0.0";
 
   const server = fastify({
     logger: true,
+  });
+
+  server.register(
+    (instance, options, next) => {
+      registerRoutes(instance);
+      next();
+    },
+    { prefix: "api/v1" }
+  );
+
+  server.register(fastifyCors, {
+    origin: true,
   });
 
   const serverAddress = await server.listen({ port: PORT, host: HOST }, () => {

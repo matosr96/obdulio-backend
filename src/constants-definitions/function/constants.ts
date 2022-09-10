@@ -1,5 +1,4 @@
-export const MONGOOSE_DATABASE_NAME = "obma-database";
-export const MONGOOSE_DATABASE_NAME_TEST = "obma-database-test";
+export const MONGOOSE_DATABASE_NAME = "obdulio";
 
 export enum Collection {
   USERS = "users",

@@ -10,9 +10,12 @@ export const userRegister = async ({
   username,
   password,
 }: UserPartial): Promise<User | Error> => {
+  console.log(name,
+    username,
+    password,)
   const model = await getModel(Collection.USERS, UserSchemaMongo);
 
-  const user = await model.findOne({ username: username });
+  const user = await model.findOne({ name: name });
 
   if (user) {
     return new Error("El username ya esta rgistrado");
