@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "18.0.0"
+  },
   "dependencies": {
     "@fastify/cors": "^8.1.0",
     "bcrypt": "^5.0.1",
