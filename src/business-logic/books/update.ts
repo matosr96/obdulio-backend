@@ -1,7 +1,7 @@
 import { Collection, getModel } from "../../constants-definitions";
 import { Book, BookSchemaMongo } from "../../types";
 
-export const updateContact = async (
+export const updateBook = async (
   uuid: string,
   title: string,
   author: string,
