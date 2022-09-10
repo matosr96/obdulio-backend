@@ -28,7 +28,7 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "dev": "ts-node src/server",
+    "dev": "ts-node-dev src/server",
     "deploy": "git add . && git commit -m 'deploy' && git push heroku",
     "start": "node build/server"
   },
