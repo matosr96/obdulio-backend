@@ -30,8 +30,7 @@
   "scripts": {
     "dev": "ts-node src/server",
     "deploy": "git add . && git commit -m 'deploy' && git push heroku",
-    "start": "NODE_ENV=production node build/server",
-    "build": "npm run build:clean && npm run build:tsc"
+    "start": "NODE_ENV=production node build/server"
   },
   "keywords": [],
   "author": "EDGAR MATOS",
