@@ -10,7 +10,9 @@ export const getBooksByUserIdRoute: RouteOptions = {
   url: "/books/:user",
   handler: async (request, reply) => {
     const { params } = request;
+   
     const { user } = params as Params;
+    console.log(user)
     try {
       const book = await getBooksById(user);
       reply.send(book);
