@@ -9,7 +9,7 @@ export interface InitMongooseOptions {
 export const initMongoose = async ({mongoUrl}: InitMongooseOptions) => {
     const connection = mongoose.connection;
 
-    const connectionUrl = "mongodb+srv://matosr96:hm1065015878@oms.3birtah.mongodb.net/obdulio?retryWrites=true&w=majority";
+    const connectionUrl = MONGODB_URL || mongoUrl || "";
 
     connection.on('error', (error) => {
         console.error(`Error in Mongoose connection: ${JSON.stringify(error)}`);
