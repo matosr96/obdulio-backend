@@ -1,4 +1,5 @@
 import { FastifyInstance, RouteOptions } from "fastify";
+import { createBookRoute } from "./books";
 import {
   userRegisterRoute,
   userLoginRoute,
@@ -11,6 +12,8 @@ const routes: RouteOptions[] = [
   userLoginRoute,
   getUserByIdRoute,
   updateUserByIdRoute,
+
+  createBookRoute
 ];
 
 export const registerRoutes = (fastify: FastifyInstance) => {
