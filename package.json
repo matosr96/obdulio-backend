@@ -1,6 +1,9 @@
 {
   "name": "fastify-typescript-api-template",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.8.0"
+  },
   "description": "",
   "main": "index.js",
   "dependencies": {
