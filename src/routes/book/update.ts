@@ -6,28 +6,21 @@ type Params = {
   uuid: string;
 };
 
-export const updateBookByIdRoute: RouteOptions = {
+export const updateBookRoute: RouteOptions = {
   method: "PUT",
   url: "/books/:uuid",
   handler: async (request, reply) => {
     const { params } = request;
     const { uuid } = params as Params;
     const { body } = request;
-    const { title, author, editorial, amount, state } = body as Book;
-
+    const { data } = body as { data: Book };
     try {
-      const book = await updateBook(
-        uuid,
-        title,
-        author,
-        editorial,
-        amount,
-        state
-      );
-      reply.send(book);
+      const obj = await updateBook(uuid, data);
+      reply.status(200).send(obj);
     } catch (err) {
       if (err instanceof Error) {
-        reply.send(500).send(err.message);
+        console.log(err);
+        reply.status(500).send(err);
       }
     }
   },

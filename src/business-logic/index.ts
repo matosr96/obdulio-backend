@@ -1,3 +1,3 @@
-export * from './books';
-export * from './index';
+export * from './book';
+export * from './institution';
 export * from './users';

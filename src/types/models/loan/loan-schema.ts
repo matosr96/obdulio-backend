@@ -1,15 +1,15 @@
 import { Schema } from "mongoose";
-import { Book } from "./books";
+import { Loan } from "./loan";
 
-export const BookSchemaMongo = new Schema<Book>(
+export const LoanSchemaMongo = new Schema<Loan>(
   {
     uuid: { type: String, required: true, unique: true },
     user: { type: String, required: true },
+    book: { type: String, required: true },
+    borrower: { type: String, required: true },
     institution: { type: String, required: true },
-    title: { type: String, required: true },
-    author: { type: String, required: true, unique: true },
-    editorial: { type: String, required: true },
-    amount: { type: Number, required: true },
+    loan_date: { type: String, required: true },
+    return_date: { type: String, required: true },
     state: { type: String, required: true },
   },
   {

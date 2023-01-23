@@ -1,7 +1,6 @@
 import { RouteOptions } from "fastify";
 import { deleteBook } from "../../business-logic";
 
-
 type Params = {
   uuid: string;
 };

@@ -1,29 +1,14 @@
 import { FastifyInstance, RouteOptions } from "fastify";
-import {
-  createBookRoute,
-  deleteBookByIdRoute,
-  getBooksByUserIdRoute,
-  updateBookByIdRoute,
-} from "./books";
-import {
-  userRegisterRoute,
-  userLoginRoute,
-  getUserByIdRoute,
-  updateUserByIdRoute,
-} from "./user";
+import { bookRoutes } from "./book";
+import { institutionRoutes } from "./institution";
+
+import { userRoutes } from "./users";
 
 const routes: RouteOptions[] = [
-  userRegisterRoute,
-  userLoginRoute,
-  getUserByIdRoute,
-  updateUserByIdRoute,
-
-  createBookRoute,
-  updateBookByIdRoute,
-  deleteBookByIdRoute,
-  getBooksByUserIdRoute,
+  ...userRoutes,
+  ...institutionRoutes,
+  ...bookRoutes,
 ];
-
 export const registerRoutes = (fastify: FastifyInstance) => {
   fastify.log.warn("Registering routes", routes);
 

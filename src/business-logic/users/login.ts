@@ -21,9 +21,8 @@ export const userLogin = async ({
     return new Error("Usuario no existe o esta inactivo");
   }
 
-  const match = await bcrypt.compare(password || "", user.password);
-
-  if (!match) {
+  //comparar las contraseñas directamente
+  if (password !== user.password) {
     return new Error("Contrasena incorrecta");
   }
 

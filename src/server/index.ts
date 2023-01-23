@@ -1,6 +1,5 @@
 import fastifyCors from "@fastify/cors";
 import * as dotenv from "dotenv";
-
 dotenv.config();
 
 import fastify from "fastify";
@@ -38,5 +37,5 @@ const HOST = "0.0.0.0";
     server.log.info("Press CTRL-c to stop");
   });
 
-  server.log.info(`Server successfully started on: ${serverAddress}`);
+  
 })();

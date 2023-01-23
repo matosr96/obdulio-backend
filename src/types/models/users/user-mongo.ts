@@ -4,9 +4,13 @@ import { User } from "./user";
 export const UserSchemaMongo = new Schema<User>(
   {
     uuid: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    name: { type: String,  },
+    lastname: { type: String, },
+    username: { type: String,  },
+    password: { type: String,  },
+    phone: { type: String, },
+    photo: { type: String },
+    status: { type: String, default: "active" },
   },
   {
     versionKey: false,
